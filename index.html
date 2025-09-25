@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Online Lazada Style</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">🛒 LazStore</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#">Beranda</a>
+      <a href="#produk">Produk</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- Slideshow -->
+  <section class="slideshow-container">
+    <div class="slide fade">
+      <img src="B1.png" alt="Slide 1">
+    </div>
+    <div class="slide fade">
+      <img src="bb.jpg" alt="Slide 2">
+    </div>
+    <div class="slide fade">
+      <img src="B.png" alt="Slide 3">
+    </div>
+
+    <!-- Tombol Navigasi -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Titik Navigasi -->
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+  </section>
+
+  <!-- Produk -->
+  <section id="produk" class="produk-section">
+    <h2>Produk Unggulan</h2>
+    <div class="produk-grid">
+      <div class="card">
+        <img src="images (1).jfif" alt="Jam Tangan">
+        <h3>Jam Tangan Elegan</h3>
+        <p>Rp 299.000</p>
+        <button>Beli Sekarang</button>
+      </div>
+      <div class="card">
+        <img src="images.jfif" alt="Headphone">
+        <h3>Headphone Wireless</h3>
+        <p>Rp 499.000</p>
+        <button>Beli Sekarang</button>
+      </div>
+      <div class="card">
+        <img src="p3.jpg" alt="Laptop">
+        <h3>Laptop Premium</h3>
+        <p>Rp 8.999.000</p>
+        <button>Beli Sekarang</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang -->
+  <section id="tentang" class="tentang-section">
+    <h2>Tentang Kami</h2>
+    <p>Kami menghadirkan pengalaman belanja online yang mudah, cepat, dan terpercaya.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer id="kontak">
+    <p>&copy; 2025 LazStore - Semua Hak Dilindungi</p>
+  </footer>
+
+  <script>
+    // Hamburger Menu
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    // Slideshow
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+
+    // Auto Slide setiap 4 detik
+    setInterval(() => { plusSlides(1); }, 4000);
+  </script>
+</body>
+</html>
